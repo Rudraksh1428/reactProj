@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import assets from "../assets/assets";
+import ThemeToggleBtn from "./ThemeToggleBtn";
 
 const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -10,17 +11,19 @@ const Navbar = ({ theme, setTheme }) => {
 
   return (
     <nav className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70">
-      <a href="#" aria-label="Home" className="flex items-center gap-3 group">
-        <img
-          src={assets.logo}
-          className="w-12 sm:w-14 transition-transform duration-300 group-hover:scale-110"
-          alt="Logo"
-        />
+     <a href="#" aria-label="PROJECT Home" className="flex items-center gap-3 group">
+  <img
+    src={assets.logo}
+    className="w-12 sm:w-14 transition-transform duration-300 group-hover:scale-105"
+    alt="PROJECT Logo"
+  />
 
-        <span className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-purple-600 via-pink-300 to-orange-400 bg-clip-text text-transparent transition-all duration-300 group-hover:tracking-wide">
-          PROJECT
-        </span>
-      </a>
+  <span className="text-2xl sm:text-3xl font-black tracking-widest text-gray-900 dark:text-white">
+    PRO<span className="text-purple-600">JECT</span>
+  </span>
+</a>
+
+
       <div
         className={`flex gap-5 text-gray-700 dark:text-white sm:items-center max-sm:fixed max-sm:top-0 max-sm:right-0 max-sm:bottom-0 max-sm:z-30 max-sm:min-h-screen max-sm:flex-col max-sm:bg-primary max-sm:text-white max-sm:pt-20 max-sm:transition-all max-sm:duration-300 ${
           sidebarOpen
@@ -67,6 +70,8 @@ const Navbar = ({ theme, setTheme }) => {
       </div>
 
       <div className="flex items-center gap-2 sm:gap-4">
+        <ThemeToggleBtn theme={theme} setTheme={setTheme} />
+
         <button
           type="button"
           onClick={() => setSidebarOpen(true)}
